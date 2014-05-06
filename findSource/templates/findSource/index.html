@@ -1,0 +1,19 @@
+<%inherit file="base.html" />
+<%def name="title()">Sourcerous</%def>
+<%def name="js_defer()">
+    ${ parent.js_defer()}
+    <script type="text/javascript" src="/static/findSource/js/findSource.js"></script>
+</%def>
+<%def name="css_files()">
+    ${ parent.css_files() }
+</%def>
+
+<h3>Hello, this is Sourcerous</h3>
+<br>
+
+<div class="form-group">
+    <label for="user-input">Please input a company name</label>
+    <input class="form-control" id="user-input">
+</div>
+<button id="search" class="btn btn-default">Search</button>
+

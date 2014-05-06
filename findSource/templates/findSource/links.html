@@ -1,0 +1,39 @@
+<%inherit file="base.html" />
+<%def name="title()">Sourcerous - result</%def>
+<%def name="js_defer()">
+    ${ parent.js_defer()}
+    <!--script type="text/javascript" src="/static/findSource/js/findSource.js"></script-->
+    <script src="/static/findSource/js/test.js"></script>
+</%def>
+
+<%def name="css_files()">
+    ${ parent.css_files() }
+</%def>
+
+<h3>Result for ${ userInput }</h3>
+<div class="col-md-12">
+    <button class="btn btn-success" id="test">Send Json</button>
+
+    <div style="display:none">
+        <input type="hidden" name="csrfmiddlewaretoken" value="${csrf_token}" />
+    </div>
+    % if object_list:
+        <table class="table">
+            <tr>
+                <th>Article</th>
+            </tr>
+        <% x = 0 %>
+        <form action="form_action.asp">
+        % for i in object_list:
+
+            <tr>
+                <td><a href = ${ i['url'] }>${ i['title'] }</a></td>
+                <td>Get People ${ x }: <input type="checkbox" name="articles" value=${ i['url'] } id=${ x }></td>
+            </tr>
+            <% x = x + 1 %>
+        % endfor
+        </form>
+        </table>
+    % endif
+</div>
+
