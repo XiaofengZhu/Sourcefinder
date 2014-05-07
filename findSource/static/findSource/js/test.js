@@ -1,4 +1,4 @@
-$(document).ready(function(){
+﻿$(document).ready(function(){
     $('#test').click(function(){
         var articles = document.forms[0].articles;
 
