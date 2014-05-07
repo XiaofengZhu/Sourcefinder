@@ -41,8 +41,9 @@ class LinksView(ListView):
 
     def get_queryset(self):
         userInput = self.kwargs['userInput']
-        userInput = 'Société Générale'
-        list = GoogleNews(userInput)
+        # encode test
+        # userInput = 'Société Générale'
+        list = GoogleNews(userInput.encode('utf-8','ignore'))
         return list
 
     def get_context_data(self, **kwargs):
