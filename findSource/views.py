@@ -41,6 +41,7 @@ class LinksView(ListView):
 
     def get_queryset(self):
         userInput = self.kwargs['userInput']
+        userInput = 'Société Générale'
         list = GoogleNews(userInput)
         return list
 

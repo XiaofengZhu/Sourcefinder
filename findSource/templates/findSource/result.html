@@ -40,7 +40,16 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        % for item in article['people']:
+                        <tr>
+                            <td><a href="/Sourcerous/${ unicode(item['name']) }">${ unicode(item['name']) }</a></td>
+                            <td>${ item['job_title'] }</td>
+                            <td>${ item['quotation'] }</td> 
+                            <td><a href="${item['twitterLink']}">Click Me</a></td>
+                            <!--td><a href="${item['linkedinLink']}">Click Me</a></td>
+                            <td><a href="${item['FacebookLink']}">Click Me</a></td-->
+                        </tr> 
+                        % endfor
                     </tbody>
                     </table>                  
                 </dd>
