@@ -57,10 +57,10 @@ def GetPeople(theUrl):
 				# 	if entity['disambiguated'].get('subType'):
 				# 		personDic['subType']=entity['disambiguated']['subType'][0]
 
-				personDic['quotation']=""
+				personDic['quotation']="N/A"
 				if entity.get('quotations'):
 					personDic['quotation']=entity['quotations'][0]['quotation']
-				personDic['job_title']=""
+				personDic['job_title']="N/A"
 
 				#Match job title
 				location=cleanText.find(entity['text'].encode('utf-8', 'ignore'))
