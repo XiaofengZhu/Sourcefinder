@@ -1,4 +1,4 @@
-#! /usr/bin/env python2.7.6
+﻿#! /usr/bin/env python2.7.6
 # -*- coding: utf-8 -*-
 
 from django.conf.urls import patterns, url

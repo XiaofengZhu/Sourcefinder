@@ -1,4 +1,4 @@
-import sys
+﻿import sys
 
 from alchemyapi import AlchemyAPI
 alchemyapi = AlchemyAPI()
