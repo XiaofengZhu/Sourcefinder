@@ -99,6 +99,8 @@ def GetPeople(theUrl):
 	return person_list
 
 
+
+
 #def GetSubtypes(Person, response_data):
 
 
