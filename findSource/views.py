@@ -1,14 +1,19 @@
-﻿#! /usr/bin/env python2.7.6
+#! /usr/bin/env python2.7.6
 # -*- coding: utf-8 -*-
 
 import json
 
 from django.http import HttpResponse
 from django.views.generic import TemplateView, ListView
+from django.utils.encoding import smart_str as _
 from findSource.AlchemyTest.alchemytest import readArticle
 
 from findSource.GoogleNews import GoogleNews
 from django.core.context_processors import csrf
+
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 class JSONResponseMixin(object):
 #    def render_to_response(self, context):
@@ -41,9 +46,7 @@ class LinksView(ListView):
 
     def get_queryset(self):
         userInput = self.kwargs['userInput']
-        # encode test
-        # userInput = 'Société Générale'
-        list = GoogleNews(userInput.encode('utf-8','ignore'))
+        list = GoogleNews(userInput)
         return list
 
     def get_context_data(self, **kwargs):
@@ -70,7 +73,18 @@ class ResultView(ListView, JSONResponseMixin):
         urllist = urls[:-1].split(';')
         for url in urllist:
             joined_list.append(readArticle(url))
-        trim_list = joined_list 
+        trim_list = joined_list
+
+        for text in trim_list:
+            text['author'] =_(text['author'])
+            text['title'] = unicode(text['title'])
+            for p in text['people']:
+                p['name'] = (p['name']).encode('utf-8')
+                p['quotation'] = unicode(p['quotation'])
+                p['job_title'] = unicode(p['job_title'])
+
+
+        print trim_list
         return trim_list
 
         '''url = self.request.session['url']
@@ -91,7 +105,7 @@ class ResultView(ListView, JSONResponseMixin):
                 for sub in flatten(el):
                     yield sub
             else:
-                yield el     
+                yield el 
 
     def clean(data_dict):
         data_values=data_dict.values()

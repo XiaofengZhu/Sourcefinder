@@ -1,4 +1,4 @@
-﻿import sys
+import sys
 
 from alchemyapi import AlchemyAPI
 alchemyapi = AlchemyAPI()
@@ -48,7 +48,7 @@ def GetPeople(theUrl):
 				#added by Xiaofeng Zhu
 				personDic={}
 				
-				personDic['name'] = entity['text'].encode('ascii', 'ignore')
+				personDic['name'] = entity['text'].encode('utf-8', 'ignore')
 
 				person=entity['text'].encode('utf-8').replace(" ", "%20")
 				personDic['twitterLink']="https://twitter.com/search?q="+person+"&src=corr&mode=users"
@@ -97,8 +97,6 @@ def GetPeople(theUrl):
 		print "Error in entity call"
 
 	return person_list
-
-
 
 
 #def GetSubtypes(Person, response_data):

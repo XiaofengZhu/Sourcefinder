@@ -1,4 +1,4 @@
-﻿"""
+"""
 Django settings for hackathon project.
 
 For more information on this file, see
