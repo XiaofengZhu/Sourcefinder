@@ -64,7 +64,6 @@ def GetPeople(theUrl):
 				if entity.get('quotations'):
 					personDic['quotation']=entity['quotations'][0]['quotation']
 				personDic['job_title']="N/A"
-				personDic['company']="N/A"
 
 				#Match job title
 				location=cleanText.find(entity['text'].encode('utf-8', 'ignore'))
@@ -73,15 +72,9 @@ def GetPeople(theUrl):
 
 				if subresponse['status'] == 'OK':
 
-					for job_com_entity in subresponse['entities']:
-						if (job_com_entity['type'] =='JobTitle'):
-							personDic['job_title']=job_com_entity['text'].encode('utf-8', 'ignore')
-
-						if (job_com_entity['type'] =='Company'):
-							personDic['company']=job_com_entity['text'].encode('utf-8', 'ignore')							
-					# for jobentity in subresponse['entities']:
-					# 	if (jobentity['type'] =='JobTitle'):
-					# 		personDic['job_title']=jobentity['text'].encode('utf-8', 'ignore')
+					for jobentity in subresponse['entities']:
+						if (jobentity['type'] =='JobTitle'):
+							personDic['job_title']=jobentity['text'].encode('utf-8', 'ignore')
 
 
 
