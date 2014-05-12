@@ -52,7 +52,7 @@ def GetPeople(theUrl):
 
 				person=entity['text'].encode('utf-8').replace(" ", "%20")
 				personDic['twitterLink']="https://twitter.com/search?q="+person+"&src=corr&mode=users"
-				personDic['linkedinLink']="https://www.linkedin.com/vsearch/p?type=people&keywords="+person
+				personDic['linkedInLink']="https://www.linkedin.com/vsearch/p?type=people&keywords="+person				
 				personDic['FacebookLink']="https://www.facebook.com/search/more/?q="+person
 
 				# personDic['subType']=""
@@ -76,9 +76,11 @@ def GetPeople(theUrl):
 					for job_com_entity in subresponse['entities']:
 						if (job_com_entity['type'] =='JobTitle'):
 							personDic['job_title']=job_com_entity['text'].encode('utf-8', 'ignore')
+							personDic['linkedInLink']=personDic['linkedInLink']+"&title="+personDic['job_title']
 
 						if (job_com_entity['type'] =='Company'):
-							personDic['company']=job_com_entity['text'].encode('utf-8', 'ignore')							
+							personDic['company']=job_com_entity['text'].encode('utf-8', 'ignore')	
+							personDic['linkedInLink']=personDic['linkedInLink']+"&company="+personDic['company']						
 					# for jobentity in subresponse['entities']:
 					# 	if (jobentity['type'] =='JobTitle'):
 					# 		personDic['job_title']=jobentity['text'].encode('utf-8', 'ignore')
