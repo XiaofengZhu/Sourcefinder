@@ -32,6 +32,7 @@
                     <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Company</th>
                             <th>Job Title</th>
                             <th>quotation</th> 
                             <th>Twitter</th>
@@ -42,7 +43,8 @@
                     <tbody>
                         % for item in article['people']:
                         <tr>
-                            <td><a href="/Sourcerous/${ item['name'] + '%20' + userInput }">${ unicode(item['name']) }</a></td>
+                            <td><a href="/Sourcerous/${ item['name'] + '%20' + userInput }">${ item['name'] } </a></td>
+                            <td>${ item['Company'] }</td>
                             <td>${ item['job_title'] }</td>
                             <td>${ item['quotation'] }</td> 
                             <td><a href="${item['twitterLink']}">Click Me</a></td>
