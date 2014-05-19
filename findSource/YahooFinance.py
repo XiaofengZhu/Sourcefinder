@@ -31,7 +31,7 @@ def YahooFinance(subject):
     root = ET.fromstring(XMLTree)
     result = []
     titlelist = []
-    original_source='N/A'
+    original_source=''
 
     for r in root[0].findall('item'):
         title = r[0].text.encode('utf8')

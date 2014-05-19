@@ -21,7 +21,7 @@ def GoogleNews(subject):
         original_source='N/A'
         unique_title=r[0].text
         if (lastIndex>-1):
-            original_source=r[0].text[lastIndex:]
+            original_source=r[0].text[lastIndex+1:]
             # Reomve duplicate articles based on titles
             unique_title=r[0].text[0:lastIndex-1]
         if unique_title not in title:
