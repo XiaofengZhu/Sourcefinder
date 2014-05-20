@@ -16,8 +16,6 @@
 
 from __future__ import print_function
 
-import requests
-
 try:
 	from urllib.request import urlopen
 	from urllib.parse import urlparse
@@ -119,9 +117,6 @@ class AlchemyAPI:
 	ENDPOINTS['combined']['text'] = '/text/TextGetCombinedData'
 	ENDPOINTS['image'] = {}
 	ENDPOINTS['image']['url'] = '/url/URLGetImage'
-	ENDPOINTS['imagetagging'] = {}
-	ENDPOINTS['imagetagging']['url'] = '/url/URLGetRankedImageKeywords'
-	ENDPOINTS['imagetagging']['image'] = '/image/ImageGetRankedImageKeywords'
 	ENDPOINTS['taxonomy'] = {}
 	ENDPOINTS['taxonomy']['url'] = '/url/URLGetRankedTaxonomy'
 	ENDPOINTS['taxonomy']['html'] = '/html/HTMLGetRankedTaxonomy'
@@ -723,26 +718,7 @@ class AlchemyAPI:
 		options[flavor] = data
 		return self.__analyze(AlchemyAPI.ENDPOINTS['combined'][flavor], options)
 
-	def imageTagging(self, flavor, data, options={}):
-		"""
-		
-		INPUT:
-		flavor -> which version of the call only url or image.
-		data -> the data to analyze, either the the url or path to image.
-		options -> various parameters that can be used to adjust how the API works, see below for more info on the available options.
-		"""
-		if flavor not in AlchemyAPI.ENDPOINTS['imagetagging']:
-			return { 'status':'ERROR', 'statusInfo':'imagetagging for ' + flavor + ' not available' }
-		elif 'image' == flavor:
-			image = open(data, 'rb').read()
-			options['imagePostMode'] = 'raw'
-			return self.__analyze(AlchemyAPI.ENDPOINTS['imagetagging'][flavor], options, image)
-	
-		options[flavor] = data
-		return self.__analyze(AlchemyAPI.ENDPOINTS['imagetagging'][flavor], options)
-		
-	
-	def __analyze(self, endpoint, params, post_data=bytearray()):
+	def __analyze(self, endpoint, params):
 		"""
 		HTTP Request wrapper that is called by the endpoint functions. This function is not intended to be called through an external interface. 
 		It makes the call, then converts the returned JSON string into a Python object. 
@@ -754,15 +730,17 @@ class AlchemyAPI:
 		The response, already converted from JSON to a Python object. 
 		"""
 
+		#Insert the base url
+		url = AlchemyAPI.BASE_URL + endpoint;
+
 		#Add the API Key and set the output mode to JSON
 		params['apikey'] = self.apikey;
 		params['outputMode'] = 'json';
-		#Insert the base url
-		
-		post_url = AlchemyAPI.BASE_URL + endpoint + '?' + urlencode(params).encode('utf-8');
 		
 		try: 
-			return requests.post(url=post_url, data=post_data).json()
+			#build the request with uri encoding
+			page = urlopen(url, data=urlencode(params).encode('utf-8')).read().decode('utf-8')
+			return json.loads(page)
 		except Exception as e:
 			print(e)
 			return { 'status':'ERROR', 'statusInfo':'network-error' }
