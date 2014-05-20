@@ -115,8 +115,8 @@ def GetPeople(theUrl):
 							personDic['linkedInLink']=personDic['linkedInLink']+"&title="+personDic['job_title']
 						else:
 							personDic['job_title']="N/A"
-						# personDic['twitterLink']="https://twitter.com/search?q="+person+"&src=corr&mode=users"			
-						# personDic['FacebookLink']="https://www.facebook.com/search/more/?q="+person
+						personDic['twitterLink']="https://twitter.com/search?q="+person+"&src=corr&mode=users"			
+						personDic['FacebookLink']="https://www.facebook.com/search/more/?q="+person
 			
 						if (name_quotation.has_key(personDic['name'])):
 							personDic['quotation']=name_quotation[personDic['name']]	
