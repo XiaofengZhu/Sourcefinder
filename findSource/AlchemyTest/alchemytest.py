@@ -28,7 +28,6 @@ def readArticle(myUrl):
     #print(json.dumps(response, indent=4))
 
     output['people'] = GetPeople(myUrl)
-    output['url'] = myUrl
     return output
 
 
