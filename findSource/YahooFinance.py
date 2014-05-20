@@ -38,6 +38,9 @@ def YahooFinance(subject):
         if 'video' not in title and 'audio' not in title\
             and '$$' not in title and title not in titlelist:
             link = r'http://' + r[1].text.split(r'http://')[-1]
+            link_source=r[1].text.split(r'http://')[-1]
+            firstIndex=link_source.find('.')
+            original_source=link_source[0:firstIndex-1]
             result.append({'title': title, 'url': link, 'original_source':original_source})
             titlelist.append(title)
 
