@@ -13,8 +13,9 @@ def readArticle(myUrl):
 
     response = alchemyapi.title("url", myUrl)
     output['title'] = response['title'].encode('utf-8', 'ignore')
-	if output['title'] =='':
-		output['title'] = 'No title found'     
+    if output['title'] =='':
+    	output['title']='No title found'
+
 
     response = alchemyapi.author("url", myUrl)
 
