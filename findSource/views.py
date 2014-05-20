@@ -52,6 +52,7 @@ class LinksView(ListView):
         list = {}
         list['Google News'] = GoogleNews(userInput)
         list['Yahoo Finance'] = YahooFinance(userInput)
+        list['Wikipedia'] = wiki(userInput)
         return list
 
     def get_context_data(self, **kwargs):
