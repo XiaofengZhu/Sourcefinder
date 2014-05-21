@@ -19,9 +19,14 @@
         </dl>
 
         <dl class="dl-horizontal">
+            <dt>Source</dt>
+            <dd>${ article['original_source'] }</dd>
+        </dl>
+
+        <dl class="dl-horizontal">
             <dt>Author</dt>
             <dd>${ article['author'] }</dd>
-        </dl>
+        </dl>        
 
         % if article['people']:
             <dl class="dl-horizontal">
