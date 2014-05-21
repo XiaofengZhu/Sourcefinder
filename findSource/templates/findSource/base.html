@@ -47,7 +47,7 @@ ${ self.css_files() }
             ${ next.body() }
         <!-- </div> --> 
     <!-- </div> -->
-    <hr>
+    
     <footer>
         <!-- <p> Copyright 2014 &copy; Sourcerous Team </p> -->
     </footer>
@@ -61,6 +61,7 @@ ${ self.js_defer() }
 <%def name="js_defer()">
     <script src="/static/findSource/js/jquery-1.10.2.min.js"> </script>
     <script src="/static/findSource/js/bootstrap.min.js"> </script>
+    <script src="/static/findSource/js/jquery-cookie/jquery.cookie.js"></script>
 </%def>
 
 
