@@ -3,11 +3,40 @@
 <%def name="js_defer()">
     ${ parent.js_defer()}
     <script type="text/javascript" src="/static/findSource/js/findSource.js"></script>
+
+    <script language="javascript">
+      function setSB(v, el) {
+        var ie5 = (document.all  &&  document.getElementsByTagName);
+        if (ie5 || document.readyState == "complete")     {
+          filterEl = el.children[0];
+          valueEl = el.children[1];
+          filterEl.style.width = v + "%";
+          valueEl.innerText = v + "%";
+        }
+      }
+      function fakeProgress(v, el) {
+        if (v > 100)
+          location.href = "/";
+        else     {
+          setSB(v, el);
+          window.setTimeout("fakeProgress(" + (++v) + ", document.all['" + el.id + "'])", 20);
+        }
+      } 
+    </script>     
 </%def>
 
 <%def name="css_files()">
     ${ parent.css_files() }
 </%def>
+
+<body onload="fakeProgress(0, sb)" topmargin=180 bgcolor='#CCCCCC'>
+<center> 
+<p align=center style="font-szie:9pt; line-height: 100%">Loading……</p>
+<span id=sb style="width: 500px">
+<div style="filter: Alpha(Opacity=0, FinishOpacity=60, style=1, StartX=0, StartY=0, FinishX=100, FinishY=0); width: 0%; height: 12px; position: absolute; background: #9999ff"></div>
+<div style="font-size: 12px; width: 100%; color: #ff3333; font-family: arial; text-align: center"></DIV>
+</span>
+</center>
 
 <h3>Result for ${ userInput }: </h3>
 <div class="col-md-12">
