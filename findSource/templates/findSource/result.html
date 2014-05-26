@@ -44,13 +44,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        % for (name, person) in article['people'].iteritems():
+                        % for name in sorted(article['people'].keys()):
                         <tr>
                             <td><a href="/Sourcerous/${ name+ '%20' + userInput }">${ name } </a></td>
-                            <td>${ person['company'] }</td>
-                            <td>${ person['job_title'] }</td>
-                            <td>${ person['quotation'] }</td> 
-                            <td><a href="${person['linkedInLink']}">Click Me</a></td>
+                            <td>${ article['people'][name]['company'] }</td>
+                            <td>${ article['people'][name]['job_title'] }</td>
+                            <td>${ article['people'][name]['quotation'] }</td> 
+                            <td><a href="${article['people'][name]['linkedInLink']}">Click Me</a></td>
                         </tr> 
                         % endfor                    
 
