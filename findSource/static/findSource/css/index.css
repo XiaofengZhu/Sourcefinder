@@ -137,11 +137,11 @@ input:focus {
 }
 
 label {
-	background: transparent url(/static/findSource/img/icon-search.png) no-repeat top left;
+	background: transparent url(/static/findSource/img/icon-search.png) no-repeat top right;
 	cursor: pointer;
 	display: block;
 	height: 17px;
-	left: 10px;
+	right: 10px;
 	position: relative;
 	text-indent: -99999px;
 	top: -21px;
