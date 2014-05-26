@@ -41,22 +41,29 @@
                             <th>Job Title</th>
                             <th>quotation</th> 
                             <th>LinkedIn</th>
-                            <!--th>Twitter</th>
-                            <th>Facebook</th-->
                         </tr>
                     </thead>
                     <tbody>
-                        % for item in article['people']:
+                        % for (name, person) in article['people'].iteritems():
                         <tr>
-                            <td><a href="/Sourcerous/${ item['name'] + '%20' + userInput }">${ item['name'] } </a></td>
-                            <td>${ item['company'] }</td>
-                            <td>${ item['job_title'] }</td>
-                            <td>${ item['quotation'] }</td> 
-                            <td><a href="${item['linkedInLink']}">Click Me</a></td>
-                            <!--td><a href="${item['twitterLink']}">Click Me</a></td>
-                            <td><a href="${item['FacebookLink']}">Click Me</a></td-->
+                            <td><a href="/Sourcerous/${ ${ name } + '%20' + userInput+'/result' }">${ name } </a></td>
+                            <td>${ person['company'] }</td>
+                            <td>${ person['job_title'] }</td>
+                            <td>${ person['quotation'] }</td> 
+                            <td><a href="${person['linkedInLink']}">Click Me</a></td>
                         </tr> 
-                        % endfor
+                        % endfor                    
+                        # % for item in article['people']:
+                        # <tr>
+                        #     <td><a href="/Sourcerous/${ item['name'] + '%20' + userInput }">${ item['name'] } </a></td>
+                        #     <td>${ item['company'] }</td>
+                        #     <td>${ item['job_title'] }</td>
+                        #     <td>${ item['quotation'] }</td> 
+                        #     <td><a href="${item['linkedInLink']}">Click Me</a></td>
+                        #     <!--td><a href="${item['twitterLink']}">Click Me</a></td>
+                        #     <td><a href="${item['FacebookLink']}">Click Me</a></td-->
+                        # </tr> 
+                        # % endfor
                     </tbody>
                     </table>                  
                 </dd>
