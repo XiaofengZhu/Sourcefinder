@@ -204,8 +204,8 @@ def GetPeople(theUrl):
 	# 		# 	print ('Entity type:', entity['type'])
 	# 		# 	print ('Entity text:', entity['text'].encode('utf-8'))	
 			
-	else:
-		print('Error in relation extaction call: ', response['statusInfo'])
+	# else:
+	# 	print('Error in relation extaction call: ', response['statusInfo'])
 
 	return person_list_dict
 
