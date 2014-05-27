@@ -11,11 +11,19 @@
 </%def>
 
 <script type="text/javascript">
+    function checkLoad()
+    {
+       if(document.getElementById("bottom"))
+       {
+        document.getElementById("preLoaderDiv").style.visibility = "hidden";
+       }
+    }
+
     setInterval("checkLoad()",1000);
 </script>
 
 <div id="preLoaderDiv">
-    <img id="preloaderAnimation" src="../static/img/loader.gif" />
+    <img id="preloaderAnimation" src="/static/img/loader.gif" />
 </div>
 
 
@@ -81,4 +89,6 @@
       % endfor
     % endif
 </div>
+
+<div id="bottom"></div>
 
