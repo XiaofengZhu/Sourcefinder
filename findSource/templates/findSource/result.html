@@ -10,13 +10,12 @@
     <link href="/static/findSource/css/index.css" rel="stylesheet">    
 </%def>
 
+<script type="text/javascript">
+    setInterval("checkLoad()",1000);
+</script>
 
 
-<div id="preLoaderDiv">
-    <img id="preloaderAnimation" src="/static/img/loader.gif" />
-</div>
-
-
+<center><img src="../static/img/logo.png"/></center>
 <h3>Result for ${ userInput }: </h3>
 <div class="col-md-12">
   % if object_list:
@@ -81,4 +80,12 @@
 </div>
 
 <div id="bottom"></div>
-
+<script type="text/javascript">
+    function checkLoad()
+    {
+       if(document.getElementById("bottom"))
+       {
+        document.getElementById("preLoaderDiv").style.visibility = "hidden";
+       }
+    }
+</script>
