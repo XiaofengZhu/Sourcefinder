@@ -21,74 +21,76 @@
 </div>
 
 <center>
-    <h3>Result for ${ userInput }: </h3>
-    <div class="col-md-12">
-      % if object_list:
-      % for (site, info) in object_list.iteritems():
-        <p4>Results in ${ site }:</p4>
-            % for article in info:
-            <dl class="dl-horizontal">
-                <dt>Article Title</dt>
-                <dd><a href= ${ article['url'] }>${ article['title'] }</a></dd>
-            </dl>
-            <dl class="dl-horizontal">
-                <dt>Source</dt>
-                <dd>${ article['original_source'] }</dd>
-            </dl>
-            <dl class="dl-horizontal">
-                <dt>Author</dt>
-                <dd>${ article['author'] }</dd>
-            </dl>
-
-            % if article['people']:
+    <div id ="content">
+        <h3>Result for ${ userInput }: </h3>
+        <div class="col-md-12">
+          % if object_list:
+          % for (site, info) in object_list.iteritems():
+            <p4>Results in ${ site }:</p4>
+                % for article in info:
                 <dl class="dl-horizontal">
-                    <dt>people</dt>
-                    <dd>
-
-                        <div id="business">
-                            <p>Hello</p>
-                            <p>World</p>
-                        </div>
-
-                        <!--table class="table">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Company</th>
-                                <th>Job Title</th>
-                                <th>quotation</th> 
-                                <th>LinkedIn</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            % for name in sorted(article['people'].keys()):
-                            <tr>
-                                <td><a href="/Sourcerous/${ name+ '%20' + userInput }">${ name } </a></td>
-                                <td>${ article['people'][name]['company'] }</td>
-                                <td>${ article['people'][name]['job_title'] }</td>
-                                <td>${ article['people'][name]['quotation'] }</td> 
-                                <td><a href="${article['people'][name]['linkedInLink']}">Click Me</a></td>
-                            </tr> 
-                            % endfor                    
-
-                        </tbody>
-                        </table-->                  
-                    </dd>
+                    <dt>Article Title</dt>
+                    <dd><a href= ${ article['url'] }>${ article['title'] }</a></dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Source</dt>
+                    <dd>${ article['original_source'] }</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Author</dt>
+                    <dd>${ article['author'] }</dd>
                 </dl>
 
-            % else:
-                <dl class="dl-horizontal">
-                    <dt>people</dt>
-                    <dd>        
-                    No source found in this article  
-                    </dd>
-                </dl>            
-            %endif
-            <br>
-            % endfor
-          % endfor
-        % endif
-    </div>
+                % if article['people']:
+                    <dl class="dl-horizontal">
+                        <dt>people</dt>
+                        <dd>
+
+                            <div id="business">
+                                <p>Hello</p>
+                                <p>World</p>
+                            </div>
+
+                            <!--table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Company</th>
+                                    <th>Job Title</th>
+                                    <th>quotation</th> 
+                                    <th>LinkedIn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                % for name in sorted(article['people'].keys()):
+                                <tr>
+                                    <td><a href="/Sourcerous/${ name+ '%20' + userInput }">${ name } </a></td>
+                                    <td>${ article['people'][name]['company'] }</td>
+                                    <td>${ article['people'][name]['job_title'] }</td>
+                                    <td>${ article['people'][name]['quotation'] }</td> 
+                                    <td><a href="${article['people'][name]['linkedInLink']}">Click Me</a></td>
+                                </tr> 
+                                % endfor                    
+
+                            </tbody>
+                            </table-->                  
+                        </dd>
+                    </dl>
+
+                % else:
+                    <dl class="dl-horizontal">
+                        <dt>people</dt>
+                        <dd>        
+                        No source found in this article  
+                        </dd>
+                    </dl>            
+                %endif
+                <br>
+                % endfor
+              % endfor
+            % endif
+        </div>
+    <div>
 </center>
 
 <div id="bottom"></div>
