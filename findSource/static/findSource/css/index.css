@@ -3,7 +3,12 @@ body {
 	margin: 0;
 	padding: 0;
 }
-
+#content
+{
+	height: 693px;
+	width: 963px;
+	background: #222 url(/static/findSource/img/news-bg.png) no-repeat top left;
+}
 #maintitle {
 	font-family:arial;
 	font-weight:900;
