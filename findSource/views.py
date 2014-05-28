@@ -90,7 +90,7 @@ class ResultView(ListView, JSONResponseMixin):
                 result_dict['original_source']=item['original_source']
                 joined_list.append(result_dict)
             #clean data
-            trim_list = joined_list
+            # trim_list = joined_list
             # for text in trim_list:
             #     text['author'] =_(text['author'])
             #     text['title'] = unicode(text['title'])
@@ -98,7 +98,7 @@ class ResultView(ListView, JSONResponseMixin):
             #         p['name'] = (p['name']).encode('utf-8')
             #         p['quotation'] = unicode(p['quotation'])
             #         p['job_title'] = unicode(p['job_title'])
-            result[site] = trim_list
+            result[site] = joined_list
 
         return result
 
