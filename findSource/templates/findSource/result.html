@@ -29,6 +29,7 @@
           % for (site, info) in object_list.iteritems():
             <p4>Results in ${ site }:</p4>
                 % for article in info:
+                <div class="article">
                 <dl class="dl-horizontal">
                     <dt>Article Title</dt>
                     <dd><a href= ${ article['url'] }>${ article['title'] }</a></dd>
@@ -98,6 +99,7 @@
                 %endif
                 <br>
                 % endfor
+                </div>
               % endfor
             % endif
         </div>

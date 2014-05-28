@@ -13,6 +13,12 @@
 	width:80%;
 	text-align:center;
 }
+.article
+{
+	background: transparent url(/static/findSource/img/article-bg.png) repeat top left;
+	width:100%;
+	padding: 0px;
+}
 #content
 {
 	padding-left:20px;
