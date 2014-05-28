@@ -48,7 +48,7 @@ form {
 	left: 44%;
 	margin-left: -100px; 
 	height: 100px;
-	width: 550px;
+	width: 300px;
 }
 
 
@@ -119,7 +119,7 @@ input {
 	-o-transition:		all .1s	linear;
 	-webkit-transition:	all .1s linear;
 
-	width: 185px;
+	width: 250px;
 }
 
 input:focus {
