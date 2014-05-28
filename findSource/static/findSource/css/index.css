@@ -7,6 +7,8 @@ body {
 {
 	height: 693px;
 	width: 963px;
+	padding: 0x;
+	float: none;
 	background: transparent url(/static/findSource/img/news-bg.png) no-repeat top left;
 }
 #maintitle {
@@ -40,13 +42,13 @@ body {
 
 form {
 	z-index: 9999;
-	position: fixed;
+	position: relative;
 
-	top: 15%;
+	top: 40%;
 	left: 50%;
 	margin-left: -100px; 
-	height: 500px;
-	width: 200px;
+	height: 100px;
+	width: 250px;
 }
 
 
