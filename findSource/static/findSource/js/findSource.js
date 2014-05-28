@@ -4,6 +4,7 @@ $("#search").click(function (){
         current_url = window.location.pathname;
         document.location.href = current_url  + input + '/result';  
         $("#preLoaderDiv").show();     
+        $("#content").hide();          
         // window.location.href = current_url  + input + '/result';
     }
 });
