@@ -10,14 +10,16 @@
 
 #content
 {
-	float: left
+	padding-left:20px;
+	float: left;
+	text-align:left;
 }
 #business
 {
 	background: transparent url(/static/findSource/img/business-card.png) no-repeat top left;
 	width: 361px;
 	height:194px;
-	padding-top:100px;
+	padding-top:50px;
 }
 
 img#preloaderAnimation
