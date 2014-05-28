@@ -47,15 +47,15 @@
                         <dt>people</dt>
                         <dd>
                             % for name in sorted(article['people'].keys()):
-                            <div class="business">
+                            <div class ="business">
                                 % if len(article['people'][name]['quotation'])<10:
                                     <br>
                                 %endif
                                 <p><h4><a href="/Sourcerous/${ name+ '%20' + userInput }">${ name }</a></h4></p>
-                                <p><h5>Company: </h5><h6>${ article['people'][name]['company'] }</h6></p>
-                                <p><h5>Job Title: </h5><h6>${ article['people'][name]['job_title'] }</h6></p>
-                                <p><h5>Quotation: </h5><h6>${ article['people'][name]['quotation'] }</h6></p> 
-                                <p><h5>LinkedIn: </h5><h6><a href="${article['people'][name]['linkedInLink']}">Click Me</a></h6></p>                                                                                               
+                                <p><b>Company: </b>${ article['people'][name]['company'] }</h5></p>
+                                <p><b>Job Title: </b>${ article['people'][name]['job_title'] }</h5></p>
+                                <p><b>Quotation: </b>${ article['people'][name]['quotation'] }</h6></p> 
+                                <p><b>LinkedIn: </b><a href="${article['people'][name]['linkedInLink']}">Click Me</a></h6></p>                                                                                               
                             </div>                             
                             % endfor 
 
