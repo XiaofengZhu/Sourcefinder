@@ -19,7 +19,7 @@
 	float: left;
 	text-align:left;
 }
-#business
+.business
 {
 	background: transparent url(/static/findSource/img/business-card.png) no-repeat top left;
 	width: 361px;
