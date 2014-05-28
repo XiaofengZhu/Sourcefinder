@@ -24,6 +24,7 @@ div#preLoaderDiv
 	top: 0px;
 	left: 0px;
 	z-index: 1000;
+	padding-top:40%;
 }
 
 div#preLoaderDiv
