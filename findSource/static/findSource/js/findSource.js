@@ -3,7 +3,7 @@ $("#search").click(function (){
     if (input){
         current_url = window.location.pathname;
         document.location.href = current_url  + input + '/result';  
-        $("#preLoaderDiv").hide();     
+        $("#preLoaderDiv").show();     
         // window.location.href = current_url  + input + '/result';
     }
 });
