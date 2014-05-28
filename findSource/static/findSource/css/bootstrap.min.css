@@ -10,7 +10,7 @@
 #maincontent
 {
 	position: relative;
-	width:60%;
+	width:80%;
 	text-align:center;
 }
 #content
@@ -24,7 +24,7 @@
 	background: transparent url(/static/findSource/img/business-card.png) no-repeat top left;
 	width: 361px;
 	height:194px;
-	padding-top:10px;
+	padding-left:10px;
 	padding-top:10px;
 }
 

@@ -46,11 +46,19 @@
                     <dl class="dl-horizontal">
                         <dt>people</dt>
                         <dd>
-
+                            % for name in sorted(article['people'].keys()):
                             <div id="business">
-                                <p>Hello</p>
-                                <p>World</p>
-                            </div>
+                                % if len(article['people'][name]['quotation'])<10:
+                                    <br>
+                                %endif
+                                <p><h4><a href="/Sourcerous/${ name+ '%20' + userInput }">${ name }</a></h4></p>
+                                <p><dt>Company: </dt><dd>${ article['people'][name]['company'] }</dd></p>
+                                <p><dt>Job Title: </dt><dd>${ article['people'][name]['job_title'] }</dd></p>
+                                <p><dt>Quotation: </dt><dd>${ article['people'][name]['quotation'] }</dd></p> 
+                                <p><dt>LinkedIn: </dt><dd><a href="${article['people'][name]['linkedInLink']}">Click Me</a></dd></p>                                                                                               
+                            </div>                             
+                            % endfor 
+
 
                             <!--table class="table">
                             <thead>
