@@ -1,13 +1,13 @@
 body {
-	background: #fff
-	margin: 0;
+	background: #222 url(/static/findSource/img/newspaper.jpg) no-repeat top left;	
+	margin: 0 auto;
 	padding: 0;
 }
 #content
 {
 	height: 693px;
 	width: 963px;
-	background: #222 url(/static/findSource/img/news-bg.png) no-repeat top left;
+	background: transparent url(/static/findSource/img/news-bg.png) no-repeat top left;
 }
 #maintitle {
 	font-family:arial;
