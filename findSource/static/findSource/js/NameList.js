@@ -17,11 +17,11 @@ $(document).ready(function(){
             + response['url'] + '<br>'
             + response['author'] + '<br>';
 
-             $.each(response['people'] , function(key, value) {
+             // $.each(response['people'] , function(key, value) {
                            
-                           append_content += response['people'][key]['company'] +'</p>';
+             //               append_content += response['people'][key]['company'] +'</p>';
 
-                        });
+             //            });
 
             append_content += '</p>';
             $('#results').append(append_content);
