@@ -17,6 +17,12 @@ $(document).ready(function(){
             + response['url'] + '<br>'
             + response['author'] + '<br>';
 
+             $.each(response['people'] , function(key, value) {
+                           // alert(key + ":" + value); //output key and value
+                           append_content += response['people'][key]['quotation'] +'</p>';
+
+                        });
+
             append_content += '</p>';
             $('#results').append(append_content);
           } else {
