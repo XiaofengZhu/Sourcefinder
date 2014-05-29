@@ -3,117 +3,72 @@
 <%def name="js_defer()">
     ${ parent.js_defer()}
     <script type="text/javascript" src="/static/findSource/js/findSource.js"></script>
-
-    <script type="text/javascript">
-        setInterval("checkLoad()",500);
-    </script>    
 </%def>
 
 <%def name="css_files()">
     ${ parent.css_files() }
 </%def>
 
+<h3>Result for ${ userInput }: </h3>
+<div class="col-md-12">
+  % if object_list:
+  % for (site, info) in object_list.iteritems():
+    <p4>Results in ${ site }:</p4>
+        % for article in info:
+        <dl class="dl-horizontal">
+            <dt>Article Title</dt>
+            <dd><a href= ${ article['url'] }>${ article['title'] }</a></dd>
+        </dl>
+        <dl class="dl-horizontal">
+            <dt>Source</dt>
+            <dd>${ article['original_source'] }</dd>
+        </dl>
+        <dl class="dl-horizontal">
+            <dt>Author</dt>
+            <dd>${ article['author'] }</dd>
+        </dl>
 
-<div id="preLoaderDiv">
-    <center>
-        <img src="/static/findSource/img/loader.gif" />
-    </center>
+        % if article['people']:
+            <dl class="dl-horizontal">
+                <dt>people</dt>
+                <dd>
+
+                    <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Job Title</th>
+                            <th>quotation</th> 
+                            <th>LinkedIn</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        % for name in sorted(article['people'].keys()):
+                        <tr>
+                            <td><a href="/Sourcerous/${ name+ '%20' + userInput }">${ name } </a></td>
+                            <td>${ article['people'][name]['company'] }</td>
+                            <td>${ article['people'][name]['job_title'] }</td>
+                            <td>${ article['people'][name]['quotation'] }</td> 
+                            <td><a href="${article['people'][name]['linkedInLink']}">Click Me</a></td>
+                        </tr> 
+                        % endfor                    
+
+                    </tbody>
+                    </table>                  
+                </dd>
+            </dl>
+
+        % else:
+            <dl class="dl-horizontal">
+                <dt>people</dt>
+                <dd>        
+                No source found in this article  
+                </dd>
+            </dl>            
+        %endif
+        % endfor
+      % endfor
+    % endif
 </div>
 
-<center>
-    <div id ="maincontent">
-    <div id ="content">
-        <h3>Result for ${ userInput }: </h3>
-        <div class="col-md-12">
-          % if object_list:
-          % for (site, info) in object_list.iteritems():
-            <p4>Results in ${ site }:</p4>
-                % for article in info:
-                <div class="article">
-                <dl class="dl-horizontal">
-                    <dt>Article Title</dt>
-                    <dd><a href= ${ article['url'] }>${ article['title'] }</a></dd>
-                </dl>
-                <dl class="dl-horizontal">
-                    <dt>Source</dt>
-                    <dd>${ article['original_source'] }</dd>
-                </dl>
-                <dl class="dl-horizontal">
-                    <dt>Author</dt>
-                    <dd>${ article['author'] }</dd>
-                </dl>
-
-                % if article['people']:
-                    <dl class="dl-horizontal">
-                        <dt>people</dt>
-                        <dd>
-                            % for name in sorted(article['people'].keys()):
-                            <div class ="business">
-                                % if len(article['people'][name]['quotation'])<10:
-                                    <br>
-                                %endif
-                                <p><h4><a href="/Sourcerous/${ name+ '%20' + userInput }">${ name }</a></h4></p>
-                                <br>
-                                <p><h5><b>Company: </b>${ article['people'][name]['company'] }</h5></p>
-                                <p><h5><b>Job Title: </b>${ article['people'][name]['job_title'] }</h5></p>
-                                <p><h5><b>LinkedIn: </b><a href="${article['people'][name]['linkedInLink']}">Click Me</a></h5></p>
-                                <p><h6><b>Quotation: </b>${ article['people'][name]['quotation'] }</h6></p>                                                                                                                                
-                            </div> 
-                            <br>                           
-                            % endfor 
-
-
-                            <!--table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Company</th>
-                                    <th>Job Title</th>
-                                    <th>quotation</th> 
-                                    <th>LinkedIn</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                % for name in sorted(article['people'].keys()):
-                                <tr>
-                                    <td><a href="/Sourcerous/${ name+ '%20' + userInput }">${ name } </a></td>
-                                    <td>${ article['people'][name]['company'] }</td>
-                                    <td>${ article['people'][name]['job_title'] }</td>
-                                    <td>${ article['people'][name]['quotation'] }</td> 
-                                    <td><a href="${article['people'][name]['linkedInLink']}">Click Me</a></td>
-                                </tr> 
-                                % endfor                    
-
-                            </tbody>
-                            </table-->                  
-                        </dd>
-                    </dl>
-
-                % else:
-                    <dl class="dl-horizontal">
-                        <dt>people</dt>
-                        <dd>        
-                        No source found in this article  
-                        </dd>
-                    </dl>            
-                %endif
-                <br>
-                % endfor
-                </div>
-              % endfor
-            % endif
-        </div>
-    </div>
-    </div>
-</center>
-
-<div id="bottom"></div>
-<script type="text/javascript">
-    function checkLoad()
-    {
-       if(document.getElementById("bottom"))
-       {
-        document.getElementById("preLoaderDiv").style.visibility = "hidden";
-       }
-    }
-</script>
