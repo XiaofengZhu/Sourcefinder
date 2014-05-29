@@ -17,14 +17,14 @@ $(document).ready(function(){
             + response['url'] + '<br>'
             + response['author'] + '<br>';
 
-             $.each(response['people'] , function(key, value) {
-                           append_content += key+'</p>';                           
-                           append_content += response['people'][key]['company'] +'</p>';
-                           append_content += response['people'][key]['job_title'] +'</p>';                           
-                           append_content += response['people'][key]['quotation'] +'</p>';
-                           append_content += response['people'][key]['linkedInLink'] +'</p>';
-                        });
-
+            $.each(response['people'] , function(key, value) {
+              append_content += key+'</p>'; 
+              append_content += response['people'][key]['company'] +'</p>';
+              append_content += response['people'][key]['job_title'] +'</p>';
+              append_content += response['people'][key]['quotation'] +'</p>';
+              append_content += response['people'][key]['linkedInLink'] +'</p>';
+            });
+            
             append_content += '</p>';
             $('#results').append(append_content);
           } else {
