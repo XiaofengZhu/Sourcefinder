@@ -18,7 +18,7 @@ $(document).ready(function(){
             + response['author'] + '<br>';
 
              $.each(response['people'] , function(key, value) {
-                           append_content += response['people'][key] +'</p>';                           
+                           append_content += key+'</p>';                           
                            append_content += response['people'][key]['company'] +'</p>';
                            append_content += response['people'][key]['job_title'] +'</p>';                           
                            append_content += response['people'][key]['quotation'] +'</p>';
@@ -34,6 +34,7 @@ $(document).ready(function(){
         if (--i) myloop(i);
       }, 5000)
     })(12);
+
     /*
     for (var i = 0; i != 12; i++){
       setTimeout(function(){
