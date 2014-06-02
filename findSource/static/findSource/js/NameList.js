@@ -15,7 +15,7 @@ $(document).ready(function(){
             if (response['title']){
               var append_content = '<br>';
               append_content +='<dl class='+'dl-horizontal'+'>'
-              +'<dt>Article Title</dt>'
+              +'<dt>Article  Title</dt>'
               +'<dd>'            
               + '<a href='+response['url'] + '>'+response['title']+'</a>'
               +'</dd>'
@@ -29,7 +29,7 @@ $(document).ready(function(){
 
               if (response['people']){ 
                 append_content +='<dl class='+'dl-horizontal'+'>'
-                +'<dt>People Info</dt>'
+                +'<dt>People   Info</dt>'
                 +'<dd>';
                              
                 $.each(response['people'] , function(key, value) {
