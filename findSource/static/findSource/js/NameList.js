@@ -17,8 +17,7 @@ $(document).ready(function(){
             + response['url'] + '<br>'
             + response['author'] + '<br>';
             append_content += '</p>';
-            /*
-
+            
             if (response['people'].length<1){
               append_content += '<p>'+'No source found in this article'+'</p>'; 
             }else{
@@ -38,7 +37,7 @@ $(document).ready(function(){
               });  
               append_content +='</div>';             
             }
-            */
+            
             $('#results').append(append_content);
           } else {
             alert("fail");
