@@ -112,8 +112,8 @@ def GetPeople(theUrl):
 	return person_list_dict
 
 def sortedDictValues3(adict): 
-keys = adict.keys() 
-keys.sort() 
-return map(adict.get, keys) 
+	keys = adict.keys() 
+	keys.sort() 
+	return map(adict.get, keys) 
 
 
