@@ -34,8 +34,9 @@ $(document).ready(function(){
                 append_content += '<p><h5><b>Job Title:'+response['people'][key]['job_title'] +'</h5></p>';
                 append_content += '<p><h5><b>LinkedIn: </b><a href='+response['people'][key]['linkedInLink']+'>'+'Click Me'+'</a></h5></p>';
                 append_content += '<p><h6><b>Quotation: </b>'+response['people'][key]['quotation'] +'</h6></p>';
+                append_content +='</div><br>';                 
               });  
-              append_content +='</div><br>';  
+ 
               append_content +='</dd>'
               +'</dl>';             
             }else{
