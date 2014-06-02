@@ -17,13 +17,15 @@
 
 <center>
 <div id="content">
-	<!--div class="background-image"></div>
 	<div class="box-frame"></div-->
 
-	<form>
+	<div id="form">
+	  <div style="display:none">
+	      <input type="hidden" name="csrfmiddlewaretoken" value="${csrf_token}" />
+	  </div>
 		<input type="text" id="user-input" placeholder="Please input a keyword">
 		<label for="search" id="search">Search</label>
-	</form>
+	</div>
 </div>
 </center>
 
