@@ -20,7 +20,7 @@ $(document).ready(function(){
             if (response['people']){              
                                           
               $.each(response['people'] , function(key, value) {
-                append_content += '<div class ='+'business'+'>'; 
+                // append_content += '<div class ='+'business'+'>'; 
 
                 if (response['people'][key]['quotation'].length<10){
                   append_content += '<br>'; 
@@ -32,7 +32,7 @@ $(document).ready(function(){
                 append_content += '<p><h5><b>LinkedIn: </b><a href='+response['people'][key]['linkedInLink']+'>'+'Click Me'+'</a></h5></p>';
                 append_content += '<p><h6><b>Quotation: </b>'+response['people'][key]['quotation'] +'</h6></p>';
               });  
-              append_content +='</div>';               
+              // append_content +='</div>';               
             }else{
               append_content += '<p>'+'No source found in this article'+'</p>';             
             }
