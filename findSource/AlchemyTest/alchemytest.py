@@ -9,10 +9,11 @@ import json
 def readArticle(myUrl):
 
     output = {}
-	response_a = alchemyapi.author("url", myUrl)
-	output['author'] = response_a["author"].encode('utf-8', 'ignore')
-	if output['author'] =='':
-		output['author'] = 'anonym'
+    response_a = alchemyapi.author("url", myUrl)
+    output['author'] = response_a["author"].encode('utf-8', 'ignore')
+    if output['author'] =='':
+    	output['author'] = 'anonym'
+
     output['people'] = GetPeople(myUrl)
     if (len(output['people'])==0):
     	output={}
