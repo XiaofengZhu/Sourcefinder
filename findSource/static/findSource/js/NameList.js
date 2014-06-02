@@ -12,7 +12,7 @@ $(document).ready(function(){
           url: urlL[i]
         }, function(response){
           if (response.success){
-            if (response['title'].length>0){
+            if (response['title']){
               var append_content = '<br>';
               append_content +='<dl class='+'dl-horizontal'+'>'
               +'<dt>Article Title</dt>'
