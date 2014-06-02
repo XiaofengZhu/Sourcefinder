@@ -9,8 +9,9 @@ import json
 def readArticle(myUrl):
 
     output = {}
-	response = alchemyapi.title("url", myUrl)	    
-	response_a = alchemyapi.author("url", myUrl)
+    response = alchemyapi.title("url", myUrl)
+    response_a = alchemyapi.author("url", myUrl)
+
     output['people'] = GetPeople(myUrl)
     if (len(output['people'])==0):
     	output={}
