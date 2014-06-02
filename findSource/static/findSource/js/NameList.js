@@ -29,7 +29,7 @@ $(document).ready(function(){
 
               if (response['people']){ 
                 append_content +='<dl class='+'dl-horizontal'+'>'
-                +'<dt>people Info</dt>'
+                +'<dt>People Info</dt>'
                 +'<dd>';
                              
                 $.each(response['people'] , function(key, value) {
