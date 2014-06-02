@@ -32,7 +32,7 @@ $(document).ready(function(){
                 append_content += '<p><h5><b>LinkedIn: </b><a href='+response['people'][key]['linkedInLink']+'>'+'Click Me'+'</a></h5></p>';
                 append_content += '<p><h6><b>Quotation: </b>'+response['people'][key]['quotation'] +'</h6></p>';
               });  
-              append_content +='</div>';               
+              append_content +='</div><br>';               
             }else{
               append_content += '<p>'+'No source found in this article'+'</p>';             
             }
