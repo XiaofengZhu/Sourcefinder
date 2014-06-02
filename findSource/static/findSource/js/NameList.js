@@ -21,7 +21,7 @@ $(document).ready(function(){
               +'</dd>'
               +'</dl>'
               +'<dl class='+'dl-horizontal'+'>'
-              +'<dt>Author Name</dt>'
+              +'<dt>Author '+' '+' '+'Name</dt>'
               +'<dd>'            
               + response['author']
               +'</dd>'            
@@ -29,7 +29,7 @@ $(document).ready(function(){
 
               if (response['people']){ 
                 append_content +='<dl class='+'dl-horizontal'+'>'
-                +'<dt>People Info</dt>'
+                +'<dt>People '+' '+' '+' '+'Info</dt>'
                 +'<dd>';
                              
                 $.each(response['people'] , function(key, value) {
