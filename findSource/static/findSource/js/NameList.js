@@ -12,15 +12,25 @@ $(document).ready(function(){
           url: urlL[i]
         }, function(response){
           if (response.success){
-            var append_content = '<p>'
-            + '<a href='+response['url'] + '>'+response['title']+'</a><br>'
-            + response['author'] + '<br>';
-            append_content += '</p>';
+
+            var append_content += '<dl class='+'dl-horizontal'+'>'
+            +'<dt>Article Title</dt>'
+            +'<dd>'            
+            + '<a href='+response['url'] + '>'+response['title']+'</a>'
+            +'</dd>'
+            +'</dl>'
+            +'<dl class='+'dl-horizontal'+'>'
+            +'<dt>Author Title</dt>'
+            +'<dd>'            
+            + response['author']
+            +'</dd>'            
+            +'</dl>';
+
 
             if (response['people']){ 
               append_content += '<dl class='+'dl-horizontal'+'>'
               +'<dt>people</dt>'
-              +'<dd>'
+              +'<dd>';
                            
               $.each(response['people'] , function(key, value) {
                 append_content += '<div class ='+'business'+'>'; 
@@ -43,7 +53,7 @@ $(document).ready(function(){
               append_content += '<dl class='+'dl-horizontal'+'>'
               +'<dt>people</dt>'
               +'<dd>'
-              +'<p>'+'No source found in this article'+'</p>'
+              +'No source found in this article'
               +'</dd>'
               +'</dl>';                          
             }
