@@ -80,7 +80,7 @@ class GetInfoView(JSONResponseMixin, View):
             url = self.request.POST.get('url', '')
             Info = readArticle(url)
             context = {'success': True}
-            if Info=='':
+            if len(Info)>0:
                 Info['success'] = false
             else:
                 Info['success'] = True
