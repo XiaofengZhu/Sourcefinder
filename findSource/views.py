@@ -61,7 +61,7 @@ class URLsView(JSONResponseMixin, View):
                     titles = titles + items['title'] + ';'
                     original_source=original_source+items['original_source']+ ';'
 
-            context = {'success': True, 'urls': urls}
+            context = {'success': True, 'urls': urls, 'original_sources': original_source}
             list['success'] = True
             return self.get_json_response(self.convert_context_to_json(context))
 
@@ -82,11 +82,12 @@ class GetInfoView(JSONResponseMixin, View):
             url = self.request.POST.get('url', '')
             Info = readArticle(url)
             context = {'success': True}
-            if len(Info)>0:
-                Info['success'] = True
+            Info['success'] = True
+            # if len(Info)>0:
+            #     Info['success'] = True
 
-            else:
-                Info['success'] = True
+            # else:
+            #     Info['success'] = False
             return self.get_json_response(self.convert_context_to_json(Info))
 
 class IndexView(TemplateView):

@@ -4,6 +4,8 @@ $(document).ready(function(){
     $.removeCookie("URLsList");
     var urlL = urlsList.urls.split(';');
     urlL.pop();
+    var original_source = urlsList.original_sources.split(';');
+    original_source.pop();    
 
 
     (function myloop(i){
@@ -12,7 +14,7 @@ $(document).ready(function(){
           url: urlL[i]
         }, function(response){
           if (response.success){
-            var append_content = '<br>';
+            var append_content = '';
             if (response['people']){
               
               append_content +='<dl class='+'dl-horizontal'+'>'
@@ -50,18 +52,17 @@ $(document).ready(function(){
               append_content +='</dd>'
               +'</dl>';             
              
-            }else{
-              append_content += '<dl class='+'dl-horizontal'+'>'
-              +'<dt>Source Info</dt>'
-              +'<dd>No source found</dd>'
-              +'</dl>';               
             }
-            append_content +='<div id='+'bottom'+'></div>';
-            $('#results').append(append_content); 
 
           } else {
             alert("fail");
+            append_content += '<dl class='+'dl-horizontal'+'>'
+            +'<dt>Source Info</dt>'
+            +'<dd>No source found</dd>'
+            +'</dl>';                    
           }
+          append_content +='<div id='+'bottom'+'></div>';
+          $('#results').append(append_content);           
         })
         if (--i) myloop(i);
       }, 5000)
