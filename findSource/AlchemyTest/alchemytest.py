@@ -6,7 +6,7 @@ alchemyapi = AlchemyAPI()
 #for json call only
 import json
 
-def readArticle(myUrl):
+def readArticle(myUrl, original_source):
 
     output = {}
     response = alchemyapi.title("url", myUrl)
@@ -21,7 +21,7 @@ def readArticle(myUrl):
     	output={}
     else:
     	output['url'] = myUrl
-
+    	output['original_source'] = original_source
 
     	output['title'] = response['title'].encode('utf-8', 'ignore')
     	if output['title'] =='':

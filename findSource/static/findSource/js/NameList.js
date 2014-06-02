@@ -11,7 +11,8 @@ $(document).ready(function(){
     (function myloop(i){
       setTimeout(function (){
         $.post('/Sourcerous/getInfo', {
-          url: urlL[i]
+          url: urlL[i],
+          osource:original_source[i]
         }, function(response){
           if (response.success){
             var append_content = '';
@@ -62,7 +63,13 @@ $(document).ready(function(){
               +'<dd> '            
               + response['author']
               +'</dd>'            
-              +'</dl>';              
+              +'</dl>'
+              +'<dl class='+'dl-horizontal'+'>'
+              +'<dt>Source</dt>'
+              +'<dd> '            
+              + response['original_source']
+              +'</dd>'            
+              +'</dl>';                            
             }           
 
           } else {
@@ -72,8 +79,10 @@ $(document).ready(function(){
             +'<dd>No source found</dd>'
             +'</dl>';                    
           }
-          append_content +='<div id='+'bottom'+'></div>';
-          $('#results').append(append_content);           
+          var end ='<div id='+'bottom'+'></div>';
+          $('#results').append(append_content);  
+          $('#results').append(end);    
+
         })
         if (--i) myloop(i);
       }, 5000)

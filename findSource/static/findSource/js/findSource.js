@@ -14,6 +14,8 @@ $('#user-input').keypress(function(e) {
         var input = $('#user-input').val();
         if (input){
           sendAjax(input);
+          $("#preLoaderDiv").show();     
+          $("#content").hide();          
         }
     }
 });
