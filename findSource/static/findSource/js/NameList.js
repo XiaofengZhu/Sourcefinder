@@ -13,15 +13,14 @@ $(document).ready(function(){
         }, function(response){
           if (response.success){
             var append_content = '<p>'
-            + response['title'] + '<br>'
-            + response['url'] + '<br>'
+            + '<a href='+response['url'] + '>'+response['title']+'</a><br>'
             + response['author'] + '<br>';
             append_content += '</p>';
 
-            if (response['people'].length<1){
+            if (response['people']){
               append_content += '<p>'+'No source found in this article'+'</p>'; 
             }else{
-              append_content += '<p>'+response['people'].length+'</p>'; 
+              append_content += '<p>'+response.length+'</p>'; 
               // append_content += '<div class ='+'business'+'>'; 
 
               // if (response['people'][key]['quotation'].length<10){
