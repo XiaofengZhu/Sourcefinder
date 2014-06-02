@@ -8,27 +8,23 @@ import json
 
 def readArticle(myUrl):
 
-    #return list
     output = {}
 
-    response = alchemyapi.title("url", myUrl)
-    output['title'] = response['title'].encode('utf-8', 'ignore')
-    if output['title'] =='':
-    	output['title']='No title found'
-
-
-    response = alchemyapi.author("url", myUrl)
-
-    output['author'] = response["author"].encode('utf-8', 'ignore')
-    if output['author'] =='':
-    	output['author'] = 'anonym'
-
-    #response = alchemyapi.entities("url", myUrl, { 'quotations':1 })
-
-    #print(json.dumps(response, indent=4))
-
     output['people'] = GetPeople(myUrl)
-    output['url'] = myUrl
+    if not (output['people'] == ''):
+	    response = alchemyapi.title("url", myUrl)
+	    output['title'] = response['title'].encode('utf-8', 'ignore')
+	    if output['title'] =='':
+	    	output['title']='No title found'
+
+
+	    response = alchemyapi.author("url", myUrl)
+
+	    output['author'] = response["author"].encode('utf-8', 'ignore')
+	    if output['author'] =='':
+	    	output['author'] = 'anonym'  
+    	output['url'] = myUrl  	
+
     return output
 
 

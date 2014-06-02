@@ -28,7 +28,7 @@ $(document).ready(function(){
             +'</dl>';
 
             if (response['people']){ 
-              append_content += response['author'].length+'<dl class='+'dl-horizontal'+'>'
+              append_content +='<dl class='+'dl-horizontal'+'>'
               +'<dt>people Info</dt>'
               +'<dd>';
                            
