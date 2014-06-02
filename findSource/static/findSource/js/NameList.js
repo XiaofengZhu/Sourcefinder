@@ -17,16 +17,24 @@ $(document).ready(function(){
             + response['url'] + '<br>'
             + response['author'] + '<br>';
             append_content += '</p>';
-            if (response['people'].length==0){
-              append_content += 'No source found in this article'+'</p>'; 
+            if (response['people'].length<1){
+              append_content += '<p>'+'No source found in this article'+'</p>'; 
             }else{
+              append_content += '<div class ="business">'; 
+
+              if (response['people'][key]['quotation'].length<10){
+                append_content += '<br>'; 
+              }                  
+              
+                            
               $.each(response['people'] , function(key, value) {
-                append_content += key+'</p>'; 
-                append_content += response['people'][key]['company'] +'</p>';
-                append_content += response['people'][key]['job_title'] +'</p>';
-                append_content += response['people'][key]['quotation'] +'</p>';
-                append_content += response['people'][key]['linkedInLink'] +'</p>';
-              });              
+                append_content += '<p><h4><a href='+"/Sourcerous/"+key+'>'+key+'</a></h4></p>'; 
+                append_content += '<p><h5><b>Company: </b>'+response['people'][key]['company'] +'</h5></p>';
+                append_content += '<p><h5><b>Job Title:'+response['people'][key]['job_title'] +'</h5></p>';
+                append_content += '<p><h5><b>LinkedIn: </b><a href='+response['people'][key]['linkedInLink']+'>'+"Click Me"+'</a></h5></p>';
+                append_content += '<p><h6><b>Quotation: </b>'+response['people'][key]['quotation'] +'</h6></p>';
+              });  
+              append_content +='</div>';             
             }
             
             $('#results').append(append_content);
