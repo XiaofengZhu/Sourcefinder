@@ -11,7 +11,9 @@ def readArticle(myUrl):
     output = {}
 
     output['people'] = GetPeople(myUrl)
-    if (len(output['people'])>0):
+    if (len(output['people'])==0):
+    	output={}
+    else:
     	output['url'] = myUrl
 
     	response = alchemyapi.title("url", myUrl)
