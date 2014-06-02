@@ -81,9 +81,10 @@ class GetInfoView(JSONResponseMixin, View):
             Info = readArticle(url)
             context = {'success': True}
             if len(Info)>0:
-                Info['success'] = false
-            else:
                 Info['success'] = True
+
+            else:
+                Info['success'] = False
             return self.get_json_response(self.convert_context_to_json(Info))
 
 class IndexView(TemplateView):
