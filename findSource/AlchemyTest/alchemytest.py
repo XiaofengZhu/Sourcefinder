@@ -101,7 +101,8 @@ def GetPeople(theUrl):
 				else:
 					person_list_dict[name_key]['freq']=person_list_dict[name_key]['freq']+1
 
-		[(k,person_list_dict[k]) for k in sorted(person_list_dict.keys())] 
+		# [(k,person_list_dict[k]) for k in sorted(person_list_dict.keys())] 
+		person_list_dict=sortedDictValues3(person_list_dict)
 		
 			
 	else:
@@ -109,5 +110,10 @@ def GetPeople(theUrl):
 	
 
 	return person_list_dict
+
+def sortedDictValues3(adict): 
+keys = adict.keys() 
+keys.sort() 
+return map(adict.get, keys) 
 
 
