@@ -27,9 +27,8 @@ $(document).ready(function(){
             +'</dd>'            
             +'</dl>';
 
-            var people= response['people'];
-            if (people.length){ 
-              append_content += '<dl class='+'dl-horizontal'+'>'
+            if (response['people']){ 
+              append_content += response['author'].length+'<dl class='+'dl-horizontal'+'>'
               +'<dt>people Info</dt>'
               +'<dd>';
                            
@@ -53,7 +52,7 @@ $(document).ready(function(){
             }else{
               append_content += '<dl class='+'dl-horizontal'+'>'
               +'<dt>People</dt>'
-              +'<dd>No source found in this article'+people.length+'</dd>'
+              +'<dd>No source found in this article</dd>'
               +'</dl>';                          
             }
             
