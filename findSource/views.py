@@ -59,7 +59,7 @@ class URLsView(JSONResponseMixin, View):
                 for items in v:
                     urls =  urls + items['url'] + ';'
                     titles = titles + items['title'] + ';'
-                    original_source=original_source+item['original_source']+ ';'
+                    original_source=original_source+items['original_source']+ ';'
 
             context = {'success': True, 'urls': urls}
             list['success'] = True
