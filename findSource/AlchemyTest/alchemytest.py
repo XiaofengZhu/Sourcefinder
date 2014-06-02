@@ -11,6 +11,10 @@ def readArticle(myUrl):
     output = {}
     response = alchemyapi.title("url", myUrl)
     response_a = alchemyapi.author("url", myUrl)
+    output['author'] = response_a["author"].encode('utf-8', 'ignore')
+    if output['author'] =='':
+    	output['author'] = 'anonym'
+
 
     output['people'] = GetPeople(myUrl)
     if (len(output['people'])==0):
@@ -22,10 +26,6 @@ def readArticle(myUrl):
     	output['title'] = response['title'].encode('utf-8', 'ignore')
     	if output['title'] =='':
     		output['title']='No title found'
-
-		output['author'] = response_a["author"].encode('utf-8', 'ignore')
-		if output['author'] =='':
-			output['author'] = 'anonym'
 	
     return output
 
