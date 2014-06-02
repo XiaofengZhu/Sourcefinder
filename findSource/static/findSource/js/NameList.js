@@ -12,17 +12,18 @@ $(document).ready(function(){
           url: urlL[i]
         }, function(response){
           if (response.success){
+            var append_content = '<br>';
             if (response['people']){
-              var append_content = '<br>';
+              
               append_content +='<dl class='+'dl-horizontal'+'>'
               +'<dt>Article Title</dt>'
-              +'<dd>'            
+              +'<dd> '            
               + '<a href='+response['url'] + '>'+response['title']+'</a>'
               +'</dd>'
               +'</dl>'
               +'<dl class='+'dl-horizontal'+'>'
               +'<dt>Author Name</dt>'
-              +'<dd>'            
+              +'<dd> '            
               + response['author']
               +'</dd>'            
               +'</dl>';
@@ -48,15 +49,15 @@ $(document).ready(function(){
  
               append_content +='</dd>'
               +'</dl>';             
-              
-              $('#results').append(append_content);              
+             
             }else{
               append_content += '<dl class='+'dl-horizontal'+'>'
               +'<dt>Source Info</dt>'
               +'<dd>No source found</dd>'
               +'</dl>';               
             }
-
+            append_content +='<div id='+'bottom+'></div>';
+            $('#results').append(append_content); 
 
           } else {
             alert("fail");
