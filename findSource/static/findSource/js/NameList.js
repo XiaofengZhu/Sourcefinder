@@ -56,7 +56,7 @@ $(document).ready(function(){
               +'<dd>No source found</dd>'
               +'</dl>';               
             }
-            append_content +='<div id='+'bottom+'></div>';
+            append_content +='<div id='+'bottom'+'></div>';
             $('#results').append(append_content); 
 
           } else {
