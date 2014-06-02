@@ -17,8 +17,11 @@ $(document).ready(function(){
             + response['author'] + '<br>';
             append_content += '</p>';
 
-            if (response['people']){              
-                                          
+            if (response['people']){ 
+              append_content += '<dl class='+'dl-horizontal'+'>'
+              +'<dt>people</dt>'
+              +'<dd>'
+                           
               $.each(response['people'] , function(key, value) {
                 append_content += '<div class ='+'business'+'>'; 
 
@@ -32,9 +35,16 @@ $(document).ready(function(){
                 append_content += '<p><h5><b>LinkedIn: </b><a href='+response['people'][key]['linkedInLink']+'>'+'Click Me'+'</a></h5></p>';
                 append_content += '<p><h6><b>Quotation: </b>'+response['people'][key]['quotation'] +'</h6></p>';
               });  
-              append_content +='</div><br>';               
+              append_content +='</div><br>';  
+              append_content +='</dd>'
+              +'</dl>';             
             }else{
-              append_content += '<p>'+'No source found in this article'+'</p>';             
+              append_content += '<dl class='+'dl-horizontal'+'>'
+              +'<dt>people</dt>'
+              +'<dd>'
+              append_content += '<p>'+'No source found in this article'+'</p>';  
+              append_content +='</dd>'
+              +'</dl>';                          
             }
             
             $('#results').append(append_content);
