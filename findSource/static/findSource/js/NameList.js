@@ -17,15 +17,15 @@ $(document).ready(function(){
             + response['author'] + '<br>';
             append_content += '</p>';
 
-            if (response['people']){
-              append_content += '<div class ='+'business'+'>'; 
-
-              if (response['people'][key]['quotation'].length<10){
-                append_content += '<br>'; 
-              }                  
-              
-                            
+            if (response['people']){              
+                                          
               $.each(response['people'] , function(key, value) {
+                append_content += '<div class ='+'business'+'>'; 
+
+                if (response['people'][key]['quotation'].length<10){
+                  append_content += '<br>'; 
+                }  
+                
                 append_content += '<p><h4><a href='+'/Sourcerous/'+key+'>'+key+'</a></h4></p>'; 
                 append_content += '<p><h5><b>Company: </b>'+response['people'][key]['company'] +'</h5></p>';
                 append_content += '<p><h5><b>Job Title:'+response['people'][key]['job_title'] +'</h5></p>';
