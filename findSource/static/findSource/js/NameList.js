@@ -17,10 +17,11 @@ $(document).ready(function(){
             + response['url'] + '<br>'
             + response['author'] + '<br>';
             append_content += '</p>';
-            
+
             if (response['people'].length<1){
               append_content += '<p>'+'No source found in this article'+'</p>'; 
             }else{
+              append_content += '<p>'+response['people'].length+'</p>'; 
               // append_content += '<div class ='+'business'+'>'; 
 
               // if (response['people'][key]['quotation'].length<10){
