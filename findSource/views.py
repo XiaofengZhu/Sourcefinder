@@ -50,6 +50,7 @@ class URLsView(JSONResponseMixin, View):
             userInput = kwargs['userInput']
             urls = ''
             titles = ''
+            original_source = ''
             list = {}
             list['Google News'] = GoogleNews(userInput)
             list['Yahoo Finance'] = YahooFinance(userInput)
@@ -58,6 +59,7 @@ class URLsView(JSONResponseMixin, View):
                 for items in v:
                     urls =  urls + items['url'] + ';'
                     titles = titles + items['title'] + ';'
+                    original_source=original_source+item['original_source']+ ';'
 
             context = {'success': True, 'urls': urls}
             list['success'] = True
@@ -79,12 +81,14 @@ class GetInfoView(JSONResponseMixin, View):
         if request.is_ajax() and request.method == 'POST':
             url = self.request.POST.get('url', '')
             Info = readArticle(url)
-            context = {'success': True}
+            
             if len(Info)>0:
                 Info['success'] = True
+                context = {'success': True}
 
             else:
                 Info['success'] = False
+                context = {'success': False}
             return self.get_json_response(self.convert_context_to_json(Info))
 
 class IndexView(TemplateView):
