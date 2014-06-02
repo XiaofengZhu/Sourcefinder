@@ -13,7 +13,7 @@
 	width:80%;
 	text-align:center;
 }
-.article
+#results
 {
 	background: transparent url(/static/findSource/img/article-bg.png) repeat top left;
 	width:100%;
