@@ -13,7 +13,8 @@ $(document).ready(function(){
         }, function(response){
           if (response.success){
 
-            var append_content += '<dl class='+'dl-horizontal'+'>'
+            var append_content = '<br>';
+            append_content +='<dl class='+'dl-horizontal'+'>'
             +'<dt>Article Title</dt>'
             +'<dd>'            
             + '<a href='+response['url'] + '>'+response['title']+'</a>'
