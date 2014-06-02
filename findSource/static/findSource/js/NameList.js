@@ -27,10 +27,10 @@ $(document).ready(function(){
             +'</dd>'            
             +'</dl>';
 
-
-            if (response['people']){ 
+            var people= response['people'];
+            if (people.length){ 
               append_content += '<dl class='+'dl-horizontal'+'>'
-              +'<dt>people</dt>'
+              +'<dt>people Info</dt>'
               +'<dd>';
                            
               $.each(response['people'] , function(key, value) {
@@ -52,7 +52,7 @@ $(document).ready(function(){
               +'</dl>';             
             }else{
               append_content += '<dl class='+'dl-horizontal'+'>'
-              +'<dt>People Info</dt>'
+              +'<dt>People</dt>'
               +'<dd>No source found in this article</dd>'
               +'</dl>';                          
             }
