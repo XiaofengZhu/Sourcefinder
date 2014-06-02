@@ -21,7 +21,7 @@ $(document).ready(function(){
             +'</dd>'
             +'</dl>'
             +'<dl class='+'dl-horizontal'+'>'
-            +'<dt>Author Title</dt>'
+            +'<dt>Author Name</dt>'
             +'<dd>'            
             + response['author']
             +'</dd>'            
