@@ -52,10 +52,8 @@ $(document).ready(function(){
               +'</dl>';             
             }else{
               append_content += '<dl class='+'dl-horizontal'+'>'
-              +'<dt>people</dt>'
-              +'<dd>'
-              +'No source found in this article'
-              +'</dd>'
+              +'<dt>People Info</dt>'
+              +'<dd>No source found in this article</dd>'
               +'</dl>';                          
             }
             
