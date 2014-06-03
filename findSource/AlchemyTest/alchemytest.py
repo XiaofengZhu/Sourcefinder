@@ -8,8 +8,7 @@ import json
 
 def readArticle(myUrl, original_source):
 	myUrl='http://www.marketwatch.com/story/us-stocks-waver-after-mixed-retail-report-2013-08-13'
-
-    output = {}
+	output = {}    
     response = alchemyapi.title("url", myUrl)
     response_a = alchemyapi.author("url", myUrl)
     output['author'] = response_a["author"].encode('utf-8', 'ignore')
