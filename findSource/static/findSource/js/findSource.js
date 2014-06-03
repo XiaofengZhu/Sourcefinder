@@ -48,3 +48,7 @@ function checkLoad()
     document.getElementById("preLoaderDiv").style.visibility = "hidden";
    }
 }
+
+$("#peopleName").click(function(){
+  console.log($(this).text());
+});
