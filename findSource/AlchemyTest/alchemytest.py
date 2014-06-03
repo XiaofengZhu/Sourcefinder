@@ -9,24 +9,28 @@ import json
 def readArticle(myUrl, original_source):
 
     output = {}
-    # myUrl='http://www.marketwatch.com/story/us-stocks-waver-after-mixed-retail-report-2013-08-13'
     response = alchemyapi.title("url", myUrl)
     response_a = alchemyapi.author("url", myUrl)
     output['author'] = response_a["author"].encode('utf-8', 'ignore')
     if output['author'] =='':
     	output['author'] = 'anonym'
 
+	output['url'] = myUrl
+	output['original_source'] = original_source
 
+	output['title'] = response['title'].encode('utf-8', 'ignore')
+	if output['title'] =='':
+		output['title']='No title found'
     output['people'] = GetPeople(myUrl)
-    if (len(output['people'])==0):
-    	output={}
-    else:
-    	output['url'] = myUrl
-    	output['original_source'] = original_source
+    # if (len(output['people'])==0):
+    # 	output={}
+    # else:
+    # 	output['url'] = myUrl
+    # 	output['original_source'] = original_source
 
-    	output['title'] = response['title'].encode('utf-8', 'ignore')
-    	if output['title'] =='':
-    		output['title']='No title found'
+    # 	output['title'] = response['title'].encode('utf-8', 'ignore')
+    # 	if output['title'] =='':
+    # 		output['title']='No title found'
 	
     return output
 
