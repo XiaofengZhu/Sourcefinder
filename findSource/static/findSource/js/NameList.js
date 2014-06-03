@@ -20,18 +20,6 @@ $(document).ready(function(){
             if (response['people']){
 
               var append_content = '';              
-              // append_content +='<dl class='+'dl-horizontal'+'>'
-              // +'<dt>Article Title</dt>'
-              // +'<dd> '            
-              // + '<a href='+response['url'] + '>'+response['title']+'</a>'
-              // +'</dd>'
-              // +'</dl>'
-              // +'<dl class='+'dl-horizontal'+'>'
-              // +'<dt>Author Name</dt>'
-              // +'<dd> '            
-              // + response['author']
-              // +'</dd>'            
-              // +'</dl>';
 
               append_content +='<dl class='+'dl-horizontal'+'>'
               +'<dt>People Info</dt>'
@@ -49,30 +37,31 @@ $(document).ready(function(){
                 append_content += '<p><h5><b>Job Title: </b>'+response['people'][key]['job_title'] +'</h5></p>';
                 append_content += '<p><h5><b>LinkedIn: </b><a href='+response['people'][key]['linkedInLink']+'>'+'Click Me'+'</a></h5></p>';
                 append_content += '<p><h6><b>Quotation: </b>'+response['people'][key]['quotation'] +'</h6></p>';
-                append_content +='</div><br>';                 
+                append_content +='</div><br>';  
+
+                append_content +='</dd>'
+                +'</dl>';             
+                append_content +='<dl class='+'dl-horizontal'+'>'
+                +'<dt>Article Title</dt>'
+                +'<dd> '            
+                + '<a href='+response['url'] + '>'+response['title']+'</a>'
+                +'</dd>'
+                +'</dl>'
+                +'<dl class='+'dl-horizontal'+'>'
+                +'<dt>Author Name</dt>'
+                +'<dd> '            
+                + response['author']
+                +'</dd>'            
+                +'</dl>'
+                +'<dl class='+'dl-horizontal'+'>'
+                +'<dt>Source</dt>'
+                +'<dd> '            
+                + response['original_source']
+                +'</dd>'            
+                +'</dl>'
+                +'<br>';                               
               });  
- 
-              append_content +='</dd>'
-              +'</dl>';             
-              append_content +='<dl class='+'dl-horizontal'+'>'
-              +'<dt>Article Title</dt>'
-              +'<dd> '            
-              + '<a href='+response['url'] + '>'+response['title']+'</a>'
-              +'</dd>'
-              +'</dl>'
-              +'<dl class='+'dl-horizontal'+'>'
-              +'<dt>Author Name</dt>'
-              +'<dd> '            
-              + response['author']
-              +'</dd>'            
-              +'</dl>'
-              +'<dl class='+'dl-horizontal'+'>'
-              +'<dt>Source</dt>'
-              +'<dd> '            
-              + response['original_source']
-              +'</dd>'            
-              +'</dl>'
-              +'<br>';  
+  
 
               $('#results').append(append_content);  
                                         

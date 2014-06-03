@@ -81,7 +81,7 @@ class GetInfoView(JSONResponseMixin, View):
         if request.is_ajax() and request.method == 'POST':
             url = self.request.POST.get('url', '')
             original_source=self.request.POST.get('osource', '')
-            url='http://www.marketwatch.com/story/us-stocks-waver-after-mixed-retail-report-2013-08-13'
+
             Info = readArticle(url,original_source)
             context = {'success': True}
             Info['success'] = True
