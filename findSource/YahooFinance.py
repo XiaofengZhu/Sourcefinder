@@ -33,16 +33,16 @@ def YahooFinance(subject):
     titlelist = []
     original_source=''
 
-    for r in root[0].findall('item'):
-        title = r[0].text.encode('utf8')
-        if 'video' not in title and 'audio' not in title\
-            and '$$' not in title and title not in titlelist:
-            link = r'http://' + r[1].text.split(r'http://')[-1]
-            link_source=r[1].text.split(r'http://')[-1]
-            firstIndex=link_source.find(r'/')
-            original_source=link_source[0:firstIndex]
-            result.append({'title': title, 'url': link, 'original_source':original_source})
-            titlelist.append(title)
+    # for r in root[0].findall('item'):
+    #     title = r[0].text.encode('utf8')
+    #     if 'video' not in title and 'audio' not in title\
+    #         and '$$' not in title and title not in titlelist:
+    #         link = r'http://' + r[1].text.split(r'http://')[-1]
+    #         link_source=r[1].text.split(r'http://')[-1]
+    #         firstIndex=link_source.find(r'/')
+    #         original_source=link_source[0:firstIndex]
+    #         result.append({'title': title, 'url': link, 'original_source':original_source})
+    #         titlelist.append(title)
 
     return result
 
