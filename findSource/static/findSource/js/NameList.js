@@ -26,9 +26,9 @@ $(document).ready(function(){
             $.each(response['people'] , function(key, value) {
               append_content += '<div class ='+'business'+'>'; 
 
-              // if (response['people'][key]['quotation'].length<10){
-              //   append_content += '<br>'; 
-              // }  
+              if (response['people'][key]['quotation'].length<10){
+                append_content += '<br>'; 
+              }  
 
               append_content += '<h4><a id=\'peopleName\' onclick="Name(\'' + key + '\')">'+key+'</a></h4>'; 
               append_content += '<p><h5><b>Company: </b>'+response['people'][key]['company'] +'</h5></p>';
