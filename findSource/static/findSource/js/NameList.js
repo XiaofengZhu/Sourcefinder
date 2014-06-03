@@ -15,10 +15,10 @@ $(document).ready(function(){
           osource:original_source[i]
         }, function(response){
           if (response.success){
-
+            var end ='<div id='+'bottom'+'></div>';              
+            $('#results').append(end); 
             if (response['people']){
-              var end ='<div id='+'bottom'+'></div>';              
-              $('#results').append(end);               
+
               var append_content = '';              
               // append_content +='<dl class='+'dl-horizontal'+'>'
               // +'<dt>Article Title</dt>'
@@ -80,7 +80,7 @@ $(document).ready(function(){
 
           } else {
             alert("fail");
-            var fail += '<dl class='+'dl-horizontal'+'>'
+            var fail = '<dl class='+'dl-horizontal'+'>'
             +'<dt>Source Info</dt>'
             +'<dd>No source found</dd>'
             +'</dl>';  
