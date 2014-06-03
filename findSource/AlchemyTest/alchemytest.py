@@ -15,22 +15,17 @@ def readArticle(myUrl, original_source):
     if output['author'] =='':
     	output['author'] = 'anonym'
 
-	output['url'] = myUrl
-	output['original_source'] = original_source
 
-	output['title'] = response['title'].encode('utf-8', 'ignore')
-	if output['title'] =='':
-		output['title']='No title found'
     output['people'] = GetPeople(myUrl)
-    # if (len(output['people'])==0):
-    # 	output={}
-    # else:
-    # 	output['url'] = myUrl
-    # 	output['original_source'] = original_source
+    if (len(output['people'])==0):
+    	output={}
+    else:
+    	output['url'] = myUrl
+    	output['original_source'] = original_source
 
-    # 	output['title'] = response['title'].encode('utf-8', 'ignore')
-    # 	if output['title'] =='':
-    # 		output['title']='No title found'
+    	output['title'] = response['title'].encode('utf-8', 'ignore')
+    	if output['title'] =='':
+    		output['title']='No title found'
 	
     return output
 
@@ -71,7 +66,7 @@ def GetPeople(theUrl):
 						if entity['type'] == 'Person' or entity['type'] == 'Company'or entity['type'] == 'JobTitle':
 							relation_entity_dict[entity['type']]=entity['text'].encode('utf-8')
 
-			if (relation_entity_dict.has_key('Person') and len(relation_entity_dict)>1):
+			if (relation_entity_dict.has_key('Person') and len(relation_entity_dict)>0):
 				personDic={}
 				name_key= relation_entity_dict['Person'].encode('utf-8')	
 

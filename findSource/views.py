@@ -81,7 +81,6 @@ class GetInfoView(JSONResponseMixin, View):
         if request.is_ajax() and request.method == 'POST':
             url = self.request.POST.get('url', '')
             original_source=self.request.POST.get('osource', '')
-
             Info = readArticle(url,original_source)
             context = {'success': True}
             Info['success'] = True

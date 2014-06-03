@@ -15,7 +15,7 @@ def wiki(subject):
         print e.options
         return []
     original_source='wikipedia'
-    # result.append({'title': response.title, 'url': response.url, 'original_source':original_source})
+    result.append({'title': response.title, 'url': response.url, 'original_source':original_source})
     return result
 
 if __name__ == "__main__":
