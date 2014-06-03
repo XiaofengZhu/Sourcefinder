@@ -15,9 +15,11 @@ $(document).ready(function(){
           osource:original_source[i]
         }, function(response){
           if (response.success){
-            var append_content = '';
+
             if (response['people']){
-              
+              var end ='<div id='+'bottom'+'></div>';              
+              $('#results').append(end);               
+              var append_content = '';              
               // append_content +='<dl class='+'dl-horizontal'+'>'
               // +'<dt>Article Title</dt>'
               // +'<dd> '            
@@ -70,19 +72,20 @@ $(document).ready(function(){
               + response['original_source']
               +'</dd>'            
               +'</dl>'
-              +'<br>';                            
+              +'<br>';  
+
+              $('#results').append(append_content);  
+                                        
             }           
 
           } else {
             alert("fail");
-            append_content += '<dl class='+'dl-horizontal'+'>'
+            var fail += '<dl class='+'dl-horizontal'+'>'
             +'<dt>Source Info</dt>'
             +'<dd>No source found</dd>'
-            +'</dl>';                    
+            +'</dl>';  
+            $('#results').append(fail);  
           }
-          var end ='<div id='+'bottom'+'></div>';
-          $('#results').append(append_content);  
-          $('#results').append(end);    
 
         })
         if (--i) myloop(i);
